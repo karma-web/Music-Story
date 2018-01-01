@@ -1,0 +1,20 @@
+<view class='music-container'>
+  <view class='music-cover'>
+    <image src='{{music.cover}}'></image>
+  </view>
+  <view class='music-author'>
+      <image src='{{music.author.web_url}}'></image>
+      <text class='music-author-name'>{{music.author.user_name}}</text>
+      <text class='music-author-desc'>{{music.author.desc}}</text>
+      <icon class='iconfont icon-play'></icon>
+      <view class='icon-button'>
+        <icon class='iconfont icon-story {{tab_name=="story"?"active":""}}' data-name='story' bindtap='switchContent'></icon>
+        <icon class='iconfont icon-lyric  {{tab_name=="lyric"?"active":""}}' data-name='lyric'  bindtap='switchContent'></icon>
+        <icon class='iconfont icon-info  {{tab_name=="info"?"active":""}}' data-name='info'  bindtap='switchContent'></icon> 
+      </view>
+  </view>
+   <view class='music-content'>
+    <import src="../../lib/wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+  </view> 
+</view>

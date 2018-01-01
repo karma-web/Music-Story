@@ -1,0 +1,15 @@
+<view class="story-container">
+  <swiper class="story-swiper" current="{{current}}" bindchange="handleChange">
+    <block wx:for="{{stories}}" wx:for-index="id" wx:key="{{id}}">
+      <swiper-item class="story-swiper-item">
+        <view class='story-swiper-content'>
+          <image src='{{item.img_url}}'></image>
+          <text class='story-swiper-title'>{{item.title}}</text>
+          <text class='story-swiper-time'>#创建于 {{item.post_date}}</text>
+          <icon class='iconfont icon-play' data-item_id="{{item.item_id}}" bindtap='switchMusic'></icon>
+        </view>
+      </swiper-item>
+    </block>
+    <swiper-item></swiper-item>
+  </swiper>
+</view>

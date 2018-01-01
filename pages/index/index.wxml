@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+<image class='img' src='{{imgUrl}}'></image>
+<view class='info'>
+{{title}}|{{author}}
+</view>
+ <view class='text'>
+ {{text}}
+ </view>
+ <view class='enter' bindtap='switchNav'>
+ <icon class='iconfont icon-enter'></icon>
+ </view>
+</view>
