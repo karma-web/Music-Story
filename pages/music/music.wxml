@@ -6,7 +6,7 @@
       <image src='{{music.author.web_url}}'></image>
       <text class='music-author-name'>{{music.author.user_name}}</text>
       <text class='music-author-desc'>{{music.author.desc}}</text>
-      <icon class='iconfont icon-play'></icon>
+      <icon class='iconfont play {{audioStatus===false?"icon-pasue":"icon-play"}}' bindtap='toggleMusic'></icon>
       <view class='icon-button'>
         <icon class='iconfont icon-story {{tab_name=="story"?"active":""}}' data-name='story' bindtap='switchContent'></icon>
         <icon class='iconfont icon-lyric  {{tab_name=="lyric"?"active":""}}' data-name='lyric'  bindtap='switchContent'></icon>

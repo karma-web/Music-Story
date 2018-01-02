@@ -10,6 +10,7 @@ Page({
     music:{},
     tab_name:'story',
     content:'',
+    audioStatus:'0',
   },
   //切换内容
   switchContent: function (e) {
@@ -18,6 +19,38 @@ Page({
     this.setData({
       tab_name:name,
       content: this.parse('content','html',data)
+    })
+  },
+  //监听音乐播放
+  //播放音乐
+  playMusic: function () {
+    wx.playBackgroundAudio({
+      dataUrl: this.data.music.music_id,
+      title: this.data.music.title,
+    })
+    wx.onBackgroundAudioPlay(() => {
+      this.setAudioStatus()
+    })
+  },
+  //暂停音乐
+  pauseMusic: function () {
+    wx.pauseBackgroundAudio()
+    wx.onBackgroundAudioPause(()=>{
+      this.setAudioStatus()
+    })
+  },
+  //操作音乐
+  toggleMusic: function () {
+    if(this.data.audioStatus===false){
+      this.pauseMusic()
+    }else {
+      this.playMusic()
+    }
+  },
+  //播放状态
+  setAudioStatus: function () {
+    this.setData({
+      audioStatus: wx.getBackgroundAudioManager().paused
     })
   },
   //解析内容
@@ -36,7 +69,7 @@ Page({
         content: this.parse('content','html',res.data.data.story)
       })
     })
-
+    this.setAudioStatus()
   },
 
   /**

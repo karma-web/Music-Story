@@ -60,7 +60,7 @@ page {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.music-author .icon-play {
+.music-author .play {
   font-size: 60rpx;
   position: absolute;
   right: 110rpx;
